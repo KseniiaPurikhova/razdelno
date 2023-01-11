@@ -1,0 +1,22 @@
+.warning {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+
+  &__text {
+    margin-bottom: 5em;
+    &-title {
+      font-size: 10em;
+      text-align: center;
+      margin: 0 auto;
+    }
+    &-subtitle {
+      font-size: 2em;
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+}

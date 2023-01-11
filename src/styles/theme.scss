@@ -1,0 +1,33 @@
+@use '@angular/material' as mat;
+@use "src/styles/variables" as variables;
+@include mat.core();
+
+$my-primary: mat.define-palette(mat.$amber-palette, 500);
+$my-accent: mat.define-palette(mat.$green-palette, A200, A100, A400);
+$my-warn: mat.define-palette(mat.$red-palette);
+$my-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+      warn: $my-warn,
+    ),
+    typography: mat.define-typography-config(RobotoRegular),
+    density: 0,
+  )
+);
+@include mat.all-component-themes($my-theme);
+
+$mdc-typography-styles-button: (
+  font-size: 16px,
+  text-transform: uppercase,
+);
+@import "@material/button/mdc-button";
+
+.mat-primary {
+  --mdc-filled-button-container-color: #ffc107;
+  --mdc-filled-button-label-text-color: variables.$white;
+}
+
+// https://m2.material.io/develop/web/guides/typography
+// https://material.angular.io/guide/theming-your-components
