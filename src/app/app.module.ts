@@ -8,6 +8,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { ForthcomingEventComponent } from './pages/forthcoming-event/forthcoming-event.component';
 import { MatButtonModule } from '@angular/material/button';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import {MatIconModule} from "@angular/material/icon";
+import {MatChipsModule} from "@angular/material/chips";
 
 @NgModule({
   declarations: [
@@ -16,12 +18,14 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     NotFoundComponent,
     ForthcomingEventComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatIconModule,
+        MatChipsModule,
+    ],
   exports: [AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],

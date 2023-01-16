@@ -53,11 +53,15 @@ h6 {
   font-weight: 600;
 }
 
-p {
+p, ul {
   margin: 0;
   font-family: RobotoRegular, serif; // Lato
   font-size: 1em; // 17px;
   color: variables.$text-secondary;
+}
+
+ul {
+  padding: 0;
 }
 
 a,

@@ -1,1 +1,53 @@
-<p>forthcoming-event works!</p>
+<nav class="navigation" routerLink="/">
+  <mat-icon class="navigation__go-back" fontIcon="arrow_back"></mat-icon>
+</nav>
+
+<main class="event">
+  <div class="event-date">
+    <div class="event-date__background"></div>
+    <div class="event-date__wrapper">
+      <h2 class="event-date__day">{{ event.day }}</h2>
+      <h3 class="event-date__month">ноября</h3>
+    </div>
+  </div>
+
+  <div class="locations">
+    <div class="locations__location" *ngFor="let location of event.locations">
+      <div>{{ location.from }}-{{ location.to }}</div>
+      <div>{{ location.name }}</div>
+      <div>{{ location.address }}</div>
+    </div>
+  </div>
+
+  <div
+    class="announcement"
+    *ngFor="let announcement of event.announcements"
+  >
+    <p>{{ announcement }}</p>
+  </div>
+
+  <div class="fraction" *ngFor="let fraction of fractions">
+    <div
+      class="fraction__background"
+      [style.background-color]="fraction.color"
+    ></div>
+    <h2 class="fraction__title">{{ fraction.title }}</h2>
+    <!-- TODO: преход на страницу описания привил приёма вторсырья -->
+    <div class="fraction__item" *ngFor="let item of fraction.items">
+      <p class="fraction__item-text">{{ item }}</p>
+    </div>
+    <div
+      class="announcement"
+      *ngFor="let announcement of fraction.announcements"
+    >
+      <p
+        [ngClass]="{
+          announcement_alert: announcement.type === announcementType.ALERT,
+          announcement_warning: announcement.type === announcementType.WARNING
+        }"
+      >
+        {{ announcement.text }}
+      </p>
+    </div>
+  </div>
+</main>

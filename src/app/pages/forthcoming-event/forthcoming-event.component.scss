@@ -1,0 +1,118 @@
+@use "src/styles/variables" as variables;
+
+.navigation {
+  height: 130px;
+  width: 20%;
+  position: absolute;
+  display: flex;
+  &__go-back {
+    width: 100%;
+    margin: auto 0 auto 20px
+  }
+}
+
+.event {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  max-width: 600px;
+  margin: auto;
+
+
+  .announcement {
+    margin: 10px 20px;
+    &_alert {
+      color: variables.$alert;
+    }
+    &_warning {
+      color: variables.$warning;
+    }
+  }
+
+  .event-date {
+    display: flex;
+    flex-direction: column;
+    &__background {
+      height: 81px;
+      background-color: variables.$event-background;
+      margin: 48px auto 22px auto;
+      display: flex;
+      width: 100%;
+      max-width: 264px;
+    }
+    &__wrapper {
+      position: absolute;
+      top: 34px;
+      left: 12px;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      width: 200px;
+    }
+    &__day {
+      font-size: 96px;
+      line-height: 74px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    &__month {
+      font-size: 32px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+
+  .locations  {
+    &__location {
+      color: variables.$text-secondary;
+      margin: 20px;
+    }
+  }
+
+  .fraction {
+    &__background {
+      margin-left: 20px;
+      height: 16px;
+      position: relative;
+      top: 50px;
+      z-index: 1;
+      opacity: 0.67;
+    }
+    &__title {
+      margin: 22px 0 20px 20px;
+      padding-right: 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      font-size: 32px;
+      &:first-letter {
+        text-transform: capitalize;
+      }
+    }
+    &__item {
+      cursor: pointer;
+      margin: 4px;
+      min-height: 28px;
+      padding: 0 16px;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      &-text {
+        margin: auto 0;
+        &:first-letter {
+          text-transform: capitalize;
+        }
+      }
+      &:hover {
+        background: variables.$item-hover;
+      }
+    }
+
+
+    &:last-of-type {
+      // margin-bottom: 50px; todo: not working, something is wrong with height of container
+      padding-bottom: 48px;
+    }
+  }
+}
