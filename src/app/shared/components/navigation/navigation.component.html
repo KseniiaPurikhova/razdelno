@@ -1,0 +1,37 @@
+<nav class="navigation">
+  <button
+    class="navigation__go-back"
+    mat-icon-button
+    [routerLink]="path"
+    aria-label="Вернуться на предыдушую страницу"
+  >
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+
+  <button
+    class="navigation__menu"
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
+    aria-label="Меню сайта"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/">
+      <mat-icon>home</mat-icon>
+      <span>Главная</span>
+    </button>
+    <button mat-menu-item [routerLink]="['/', ROUTS.EVENT]">
+      <mat-icon>event</mat-icon>
+      <span>Предстоящая акция</span>
+    </button>
+    <button mat-menu-item [routerLink]="['/', ROUTS.GUIDE]">
+      <mat-icon>manage_search</mat-icon>
+      <span>Справочник вторсырья</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>login</mat-icon>
+      <span>Вход (для админов)</span>
+    </button>
+  </mat-menu>
+</nav>

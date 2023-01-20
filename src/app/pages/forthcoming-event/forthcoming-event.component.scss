@@ -1,24 +1,12 @@
 @use "src/styles/variables" as variables;
 
-.navigation {
-  height: 130px;
-  width: 20%;
-  position: absolute;
-  display: flex;
-  &__go-back {
-    width: 100%;
-    margin: auto 0 auto 20px
-  }
-}
-
 .event {
   height: 100%;
   display: flex;
   flex-direction: column;
 
   max-width: 600px;
-  margin: auto;
-
+  margin: 200px auto auto auto;
 
   .announcement {
     margin: 10px 20px;
@@ -36,14 +24,21 @@
     &__background {
       height: 81px;
       background-color: variables.$event-background;
-      margin: 48px auto 22px auto;
+      //margin: 48px auto 22px auto;
       display: flex;
       width: 100%;
       max-width: 264px;
+
+      position: absolute;
+      top: 90px;
+      left: 12px;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
     }
     &__wrapper {
       position: absolute;
-      top: 34px;
+      top: 74px;
       left: 12px;
       right: 0;
       margin-left: auto;
@@ -54,41 +49,48 @@
       font-size: 96px;
       line-height: 74px;
       text-align: center;
-      text-transform: uppercase;
     }
     &__month {
-      font-size: 32px;
       text-align: center;
-      text-transform: uppercase;
     }
   }
 
-  .locations  {
+  .locations {
     &__location {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
       color: variables.$text-secondary;
-      margin: 20px;
+      margin: 14px;
+      &-display-btn {
+        height: inherit;
+        display: flex;
+        width: 40px;
+        .material-icons {
+          margin: auto;
+        }
+      }
     }
   }
 
   .fraction {
     &__background {
-      margin-left: 20px;
+      margin-right: 20px;
+      //margin-left: 20px;
       height: 16px;
       position: relative;
       top: 50px;
       z-index: 1;
-      opacity: 0.67;
+      background: variables.$event-background;
+      //opacity: .67;
     }
     &__title {
-      margin: 22px 0 20px 20px;
-      padding-right: 20px;
-      text-align: center;
+      margin: 20px;
+      //margin: 22px 0 20px 20px;
+      //padding-right: 20px;
+      //text-align: center;
       position: relative;
       z-index: 1;
-      font-size: 32px;
-      &:first-letter {
-        text-transform: capitalize;
-      }
     }
     &__item {
       cursor: pointer;
@@ -100,15 +102,11 @@
       flex-direction: column;
       &-text {
         margin: auto 0;
-        &:first-letter {
-          text-transform: capitalize;
-        }
       }
       &:hover {
         background: variables.$item-hover;
       }
     }
-
 
     &:last-of-type {
       // margin-bottom: 50px; todo: not working, something is wrong with height of container

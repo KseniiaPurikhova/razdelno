@@ -1,0 +1,89 @@
+<app-navigation class="navigation" [path]="['/', ROUTS.EVENT]"></app-navigation>
+<!-- TODO: remember scroll position -->
+
+<main class="main">
+  <h2 class="main__title capitalize">fraction-info works!</h2>
+
+  <p class="main__category-info">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+  </p>
+
+  <div class="main__labels">
+    <img class="icon" src="assets/icons/pap-21.svg" alt="PAP 21" />
+    <img class="icon" src="assets/icons/pap-22.svg" alt="PAP 22" />
+  </div>
+
+  <mat-card class="main__card acceptable">
+    <mat-card-header class="main__card-title">
+      <mat-card-title>
+        <div class="main__card-title-icon">
+          <mat-icon color="accent">check_circle_outline</mat-icon>
+        </div>
+        <div>Принимаем</div>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="main__details">
+        Бумажные изделия без примесей (пластик, фольга, наклейки и т.д),
+        глянцевая бумага, изрисованная бумага, газеты, книги, крафт-бумага,
+        бумажная упаковка и картонная упаковка, картонные бирки, открытки.
+      </p>
+
+      <ng-container *ngTemplateOutlet="examples"></ng-container>
+
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="main__card not-acceptable">
+    <mat-card-header class="main__card-title">
+      <mat-card-title>
+        <div class="main__card-title-icon">
+          <mat-icon color="warn">highlight_off</mat-icon>
+        </div>
+        <div>Не принимаем</div>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="main__details">
+        грязную и масленную бумагу, обои, салфетки, промокашки, бумагу с
+        восковой пропиткой.
+      </p>
+
+      <ng-container *ngTemplateOutlet="examples"></ng-container>
+
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="main__card preparation">
+    <mat-card-header class="main__card-title">
+      <mat-card-title>Как подготовить</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="main__details">
+        Важно, если бумага или картон сильно блестят и лоснятся, надорвите край
+        и проверьте, есть ли пленка на разрыве. Если есть, это в тетрапак.
+      </p>
+
+      <p class="main__details">
+        Как подготовить к сдаче: Убрать скотч, пружинки, скобки, скрепки,
+        «окошечки» из пластика (например упаковка от вермишели); Лучше всего
+        упаковать в бумажный пакет или коробку, либо перевязать бечевкой.
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="main__announcements">announcement</div>
+</main>
+
+<ng-template class="examples" #examples>
+  <mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Примеры
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      изображения...
+    </mat-expansion-panel>
+  </mat-accordion>
+</ng-template>

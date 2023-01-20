@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ROUTS } from '@shared/constants/routs';
 
 interface Location {
   from: string; // ?
@@ -17,11 +18,12 @@ interface Event {
 interface Fractions {
   title: string;
   color: string;
-  items: string[];
+  items: Fraction[];
   announcements: Announcement[];
 }
 
-interface RecyclablesItem {
+interface Fraction {
+  uuid: string;
   title: string;
 }
 
@@ -29,7 +31,6 @@ enum AnnouncementType {
   NORMAL = 'normal',
   WARNING = 'warning',
   ALERT = 'alert',
-
 }
 
 interface Announcement {
@@ -43,7 +44,8 @@ interface Announcement {
   styleUrls: ['./forthcoming-event.component.scss'],
 })
 export class ForthcomingEventComponent {
-  public announcementType = AnnouncementType;
+  public ROUTS = ROUTS;
+  public ANNOUNCEMENT_TYPE = AnnouncementType;
   public event: Event = {
     day: 28,
     month: 0,
@@ -84,21 +86,20 @@ export class ForthcomingEventComponent {
       title: 'постоянные фракции',
       color: '#72F2F2',
       items: [
-        // TODO: uuid вторсырья
-        'бумага и тонкий картон',
-        'картон и гофрокартон',
-        'стекло',
-        'алюминиевые банки от напитков',
-        'фольга',
-        'металл',
-        'выдувной ПЭТ прозрачный стандартных цветов',
-        'выдувной ПЭТ прозрачный нестандартных цветов',
-        '2-ПНД твердый',
-        '2-ПНД крышки',
-        'другие крышки',
-        'батарейки',
-        'некрупная бытовая техника',
-        'пластиковые карты без чипа',
+        { uuid: '1', title: 'бумага и тонкий картон' },
+        { uuid: '2', title: 'картон и гофрокартон' },
+        { uuid: '3', title: 'стекло' },
+        { uuid: '4', title: 'алюминиевые банки от напитков' },
+        { uuid: '5', title: 'фольга' },
+        { uuid: '6', title: 'металл' },
+        { uuid: '7', title: 'выдувной ПЭТ прозрачный стандартных цветов' },
+        { uuid: '8', title: 'выдувной ПЭТ прозрачный нестандартных цветов' },
+        { uuid: '9', title: '2-ПНД твердый' },
+        { uuid: '10', title: '2-ПНД крышки' },
+        { uuid: '11', title: 'другие крышки' },
+        { uuid: '12', title: 'батарейки' },
+        { uuid: '13', title: 'некрупная бытовая техника' },
+        { uuid: '13', title: 'пластиковые карты без чипа' },
       ],
       announcements: [],
     },
@@ -106,11 +107,11 @@ export class ForthcomingEventComponent {
       title: 'редкие фракции',
       color: '#F272A8',
       items: [
-        'диски CD и DVD',
-        'коробки от CD и DVD дисков',
-        'пластиковые зубные щетки',
-        'ПВХ круги и матрасы',
-        'твердый 4 ПВД (ПЭ, ПЕ)',
+        { uuid: '14', title: 'диски CD и DVD' },
+        { uuid: '15', title: 'коробки от CD и DVD дисков' },
+        { uuid: '16', title: 'пластиковые зубные щетки' },
+        { uuid: '17', title: 'ПВХ круги и матрасы' },
+        { uuid: '18', title: 'твердый 4 ПВД (ПЭ, ПЕ)' },
       ],
       announcements: [],
     },
@@ -118,23 +119,28 @@ export class ForthcomingEventComponent {
       title: 'сложные фракции',
       color: '#F2A072',
       items: [
-        'полипропилен 5PP твёрдый бесцветный',
-        'полипропилен 5PP твёрдый белый',
-        'полипропилен 5PP твёрдый цветной',
-        'полипропилен 5РР с впаянной этикеткой',
-        'аккумуляторы телефонные',
-        'фильтры для воды',
+        { uuid: '19', title: 'полипропилен 5PP твёрдый бесцветный' },
+        { uuid: '20', title: 'полипропилен 5PP твёрдый белый' },
+        { uuid: '21', title: 'полипропилен 5PP твёрдый цветной' },
+        { uuid: '22', title: 'полипропилен 5РР с впаянной этикеткой' },
+        { uuid: '23', title: 'аккумуляторы телефонные' },
+        { uuid: '24', title: 'фильтры для воды' },
       ],
       announcements: [],
     },
     {
       title: 'реюз',
       color: '#9BF272',
-      items: ['для РазДельно', 'капроновые колготки'],
-      announcements: [{
-        text: 'Прием вязаных вещей завершён!',
-        type: AnnouncementType.ALERT,
-      }],
+      items: [
+        { uuid: '25', title: 'для РазДельно' },
+        { uuid: '26', title: 'капроновые колготки' },
+      ],
+      announcements: [
+        {
+          text: 'Прием вязаных вещей завершён!',
+          type: AnnouncementType.ALERT,
+        },
+      ],
     },
   ];
 }

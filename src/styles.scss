@@ -53,6 +53,10 @@ h6 {
   font-weight: 600;
 }
 
+h2 {
+  font-size: 32px;
+}
+
 p, ul {
   margin: 0;
   font-family: RobotoRegular, serif; // Lato
@@ -93,3 +97,23 @@ button {
 //    margin-right: 8px;
 //  }
 //}
+
+
+//.mat-icon.eco-label {
+//  height: 52px;
+//  width: 45px;
+//}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.capitalize {
+  &:first-letter {
+    text-transform: capitalize;
+  }
+}
+
+.mat-mdc-card {
+  box-shadow: 0 1px 1px 0 rgb(0 0 0 / 14%), 0 1px 3px 0 rgb(0 0 0 / 12%) !important;
+}

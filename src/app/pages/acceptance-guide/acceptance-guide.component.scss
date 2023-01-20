@@ -1,0 +1,50 @@
+@use "src/styles/variables" as variables;
+
+.app-acceptance-guide {
+  display: flex;
+  flex-direction: column;
+}
+.main {
+
+  max-width: 600px;
+  margin: 60px auto auto auto;
+
+  &__title {
+    margin: 20px;
+  }
+  &__category-info {
+    color: variables.$link;
+    margin: 20px;
+  }
+
+  &__labels {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+    .icon {
+      height: 4em;
+    }
+  }
+
+  &__details {
+    margin: 20px 0;
+  }
+
+  &__card {
+    margin: 20px;
+    &-title {
+      .mat-mdc-card-title {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+      }
+      &-icon {
+        display: flex;
+        margin: auto;
+      }
+    }
+  }
+
+}
+

@@ -1,4 +1,5 @@
 export enum ROUTS {
   HOME = '',
-  EVENT = 'forthcoming-event'
+  EVENT = 'forthcoming-event',
+  GUIDE = 'acceptance-guide'
 }

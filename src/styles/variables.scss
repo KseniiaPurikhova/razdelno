@@ -1,3 +1,4 @@
+//$text: #2d0c57;
 //$text-primary: #2d0c57;
 //$text-secondary: #9586a8;
 //$selected-bg: #e2cbff;
@@ -6,17 +7,27 @@
 //$selected: #7203ff;
 //$primary: #0bce83;
 //$accent: #cbf265;
-$white: #fff;
+//$white: #fff;
 
-$text: #212121;
-$text-primary: #212121;
-$text-secondary: #757575;
-$primary: #ffc107;
-$primary-light: #ffecb3;
-$primary-dark: #ffa000;
-$accent: #4caf50;
-$divider: #bdbdbd;
-$background: #f6f5f5;
+$text: #2d0c57;
+$text-primary: #2d0c57;
+$text-secondary: #9586a8;
+$primary: rgba(155, 242, 114, 1);
+$primary-light: #0bce83;
+$primary-dark: #0bce83;
+$accent: #cbf265;
+$divider: #d9d0e3;
+$background: #fff;
+
+//$text: #212121;
+//$text-primary: #212121;
+//$text-secondary: #757575;
+//$primary: #ffc107;
+//$primary-light: #ffecb3;
+//$primary-dark: #ffa000;
+//$accent: #4caf50;
+//$divider: #bdbdbd;
+//$background: #f6f5f5;
 
 $link: #06BE77;
 $link-hover: #27AE60;
@@ -28,3 +39,4 @@ $item-hover: rgba(47, 52, 79, 0.04);
 
 
 $event-background: rgba(155, 242, 114, .67);
+//$event-background: rgba(10, 207, 101, .67);

@@ -1,40 +1,41 @@
-<nav class="navigation" routerLink="/">
-  <mat-icon class="navigation__go-back" fontIcon="arrow_back"></mat-icon>
-</nav>
+<app-navigation></app-navigation>
 
 <main class="event">
   <div class="event-date">
     <div class="event-date__background"></div>
     <div class="event-date__wrapper">
-      <h2 class="event-date__day">{{ event.day }}</h2>
-      <h3 class="event-date__month">ноября</h3>
+      <h2 class="event-date__day uppercase">{{ event.day }}</h2>
+      <h2 class="event-date__month uppercase">ноября</h2>
     </div>
   </div>
 
   <div class="locations">
     <div class="locations__location" *ngFor="let location of event.locations">
-      <div>{{ location.from }}-{{ location.to }}</div>
-      <div>{{ location.name }}</div>
-      <div>{{ location.address }}</div>
+      <div class="locations__location-display-btn"><span class="material-icons">place</span></div>
+      <div>
+        <div>{{ location.name }}</div>
+        <div>{{ location.address }} </div>
+        <div>{{ location.from }}-{{ location.to }}</div>
+      </div>
     </div>
   </div>
 
-  <div
-    class="announcement"
-    *ngFor="let announcement of event.announcements"
-  >
+  <div class="announcement" *ngFor="let announcement of event.announcements">
     <p>{{ announcement }}</p>
   </div>
 
   <div class="fraction" *ngFor="let fraction of fractions">
-    <div
-      class="fraction__background"
-      [style.background-color]="fraction.color"
-    ></div>
-    <h2 class="fraction__title">{{ fraction.title }}</h2>
+    <div class="fraction__background"></div>
+    <!--[style.background-color]="fraction.color"-->
+    <h2 class="fraction__title capitalize">{{ fraction.title }}</h2>
     <!-- TODO: преход на страницу описания привил приёма вторсырья -->
-    <div class="fraction__item" *ngFor="let item of fraction.items">
-      <p class="fraction__item-text">{{ item }}</p>
+    <div
+      class="fraction__item"
+      *ngFor="let item of fraction.items"
+      [routerLink]="['/', ROUTS.GUIDE]"
+      [queryParams]="{ category: item.uuid }"
+    >
+      <p class="fraction__item-text capitalize">{{ item.title }}</p>
     </div>
     <div
       class="announcement"
@@ -42,8 +43,8 @@
     >
       <p
         [ngClass]="{
-          announcement_alert: announcement.type === announcementType.ALERT,
-          announcement_warning: announcement.type === announcementType.WARNING
+          announcement_alert: announcement.type === ANNOUNCEMENT_TYPE.ALERT,
+          announcement_warning: announcement.type === ANNOUNCEMENT_TYPE.WARNING
         }"
       >
         {{ announcement.text }}
