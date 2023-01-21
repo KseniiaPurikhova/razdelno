@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding, ViewEncapsulation } from "@angular/core";
 import { ROUTS } from '@shared/constants/routs';
 
 interface Location {
   from: string; // ?
   to: string;
-  name: string;
+  title: string;
   address: string;
 }
 
@@ -42,8 +42,10 @@ interface Announcement {
   selector: 'app-forthcoming-event',
   templateUrl: './forthcoming-event.component.html',
   styleUrls: ['./forthcoming-event.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class ForthcomingEventComponent {
+  @HostBinding('class.app-forthcoming-event') public readonly hostClass = true;
   public ROUTS = ROUTS;
   public ANNOUNCEMENT_TYPE = AnnouncementType;
   public event: Event = {
@@ -53,25 +55,25 @@ export class ForthcomingEventComponent {
       {
         from: '11:00',
         to: '12:30',
-        name: 'Администрация Ленинского района',
+        title: 'Администрация Ленинского района',
         address: 'Ленина, 46',
       },
       {
         from: '11:00',
         to: '12:30',
-        name: 'Автозавод',
+        title: 'Автозавод',
         address: 'пл. Киселёва',
       },
       {
         from: '11:00',
         to: '12:30',
-        name: 'Мыза',
+        title: 'Мыза',
         address: 'напротив ТЦ «Жанто-2»',
       },
       {
         from: '11:00',
         to: '12:30',
-        name: 'Кстово',
+        title: 'Кстово',
         address: 'пр-кт. Капитана Рачкова, 12',
       },
     ],

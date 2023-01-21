@@ -1,18 +1,21 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
-import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
-
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './pages/home/home.component';
-import { ForthcomingEventComponent } from './pages/forthcoming-event/forthcoming-event.component';
-import { MatButtonModule } from '@angular/material/button';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { AcceptanceGuideComponent } from './pages/acceptance-guide/acceptance-guide.component';
+import { BaseLayoutComponent } from "@layouts/base-layout/base-layout.component";
+import { HomeComponent } from "@pages/home/home.component";
+import { ForthcomingEventComponent } from "@pages/forthcoming-event/forthcoming-event.component";
+import { NotFoundComponent } from "@pages/not-found/not-found.component";
+import { FractionsComponent } from '@pages/fractions/fractions.component';
+import { FractionComponent } from '@pages/fractions/fraction/fraction.component';
 import { NavigationModule } from '@shared/components/navigation/navigation.module';
-import { MatIconModule } from '@angular/material/icon';
-import {MatCardModule} from "@angular/material/card";
-import {MatExpansionModule} from "@angular/material/expansion";
+import { MatInputModule } from "@angular/material/input";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import {MatExpansionModule} from "@angular/material/expansion";
     HomeComponent,
     NotFoundComponent,
     ForthcomingEventComponent,
-    AcceptanceGuideComponent,
+    FractionsComponent,
+    FractionComponent,
+    BaseLayoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +36,9 @@ import {MatExpansionModule} from "@angular/material/expansion";
     MatIconModule,
     MatCardModule,
     MatExpansionModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [AppRoutingModule, NavigationModule],
   providers: [],

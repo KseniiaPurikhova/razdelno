@@ -1,15 +1,14 @@
-import {Component, HostBinding, ViewEncapsulation} from '@angular/core';
+import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
 import { ROUTS } from '@shared/constants/routs';
 
 @Component({
-  selector: 'app-acceptance-guide',
-  templateUrl: './acceptance-guide.component.html',
-  styleUrls: ['./acceptance-guide.component.scss'],
+  selector: 'app-fraction',
+  templateUrl: './fraction.component.html',
+  styleUrls: ['./fraction.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class AcceptanceGuideComponent {
-  @HostBinding('class.app-acceptance-guide') public readonly hostClass = true;
-
+export class FractionComponent {
+  @HostBinding('class.app-fraction') public readonly hostClass = true;
   public ROUTS = ROUTS;
   public acceptable = [];
   public notAcceptable = [];

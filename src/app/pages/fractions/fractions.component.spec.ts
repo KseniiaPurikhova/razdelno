@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AcceptanceGuideComponent } from './acceptance-guide.component';
+import { FractionsComponent } from './fractions.component';
 
 describe('FractionInfoComponent', () => {
-  let component: AcceptanceGuideComponent;
-  let fixture: ComponentFixture<AcceptanceGuideComponent>;
+  let component: FractionsComponent;
+  let fixture: ComponentFixture<FractionsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AcceptanceGuideComponent ]
+      declarations: [ FractionsComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AcceptanceGuideComponent);
+    fixture = TestBed.createComponent(FractionsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

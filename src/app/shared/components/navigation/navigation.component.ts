@@ -8,6 +8,6 @@ import { ROUTS } from '@shared/constants/routs';
 })
 export class NavigationComponent {
   @Input()
-  public path: string[] = ['/'];
+  public path: string[] | undefined;
   public ROUTS = ROUTS;
 }

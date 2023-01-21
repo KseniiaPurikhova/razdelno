@@ -1,13 +1,9 @@
 @use "src/styles/variables" as variables;
 
-.app-acceptance-guide {
+.app-fraction {
   display: flex;
   flex-direction: column;
-}
-.main {
-
   max-width: 600px;
-  margin: 60px auto auto auto;
 
   &__title {
     margin: 20px;
@@ -45,6 +41,4 @@
       }
     }
   }
-
 }
-

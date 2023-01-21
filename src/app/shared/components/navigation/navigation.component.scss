@@ -7,9 +7,7 @@
   flex-direction: row;
   justify-content: space-between;
   background: variables.$primary;
-  position: fixed;
-  top: 0;
-  z-index: 999;
+  box-shadow: 0 2px 5px #0000004d;
   &__go-back {
     margin: auto 20px;
   }

@@ -21,6 +21,8 @@
     "useDefineForClassFields": false,
     "lib": ["ES2022", "dom"],
     "paths": {
+      "@layouts/*": ["app/layouts/*"],
+      "@pages/*": ["app/pages/*"],
       "@shared/*": ["app/shared/*"],
       "@constants/*": ["app/shared/constants/*"],
       "@assets/*": ["app/assets/*"],
