@@ -3,7 +3,8 @@
 .app-fraction {
   display: flex;
   flex-direction: column;
-  max-width: 600px;
+  max-width: 1024px;
+  margin: auto;
 
   &__title {
     margin: 20px;
@@ -16,7 +17,6 @@
   &__labels {
     margin: 20px;
     display: flex;
-    flex-direction: row;
     gap: 14px;
     .icon {
       height: 4em;
@@ -32,8 +32,7 @@
     &-title {
       .mat-mdc-card-title {
         display: flex;
-        flex-direction: row;
-        gap: 10px;
+        gap: 14px;
       }
       &-icon {
         display: flex;

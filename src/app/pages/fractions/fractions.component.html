@@ -1,23 +1,43 @@
 <h2 class="app-fractions__title capitalize">Справочник вторсырья</h2>
 
 <main class="app-fractions__content">
-  <mat-form-field class="app-fractions__input" appearance="outline">
+  <mat-form-field class="app-fractions__search" appearance="outline">
     <mat-label>Поиск</mat-label>
     <mat-icon matPrefix>search</mat-icon>
-    <input matInput type="text" [(ngModel)]="search">
-    <button *ngIf="search.length" matSuffix mat-icon-button aria-label="очистить поиск" (click)="search=''">
+    <input matInput type="text" [formControl]="searchControl" />
+    <button
+      *ngIf="searchControl?.value?.length"
+      matSuffix
+      mat-icon-button
+      aria-label="очистить поиск"
+      (click)="clearSearch()"
+    >
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>
 
-  <mat-card>
-    <mat-card-content>
-      <!--<img src="assets/img/paper.jpg">-->
-      <h5>Бумага и мягкий картон</h5>
-      <div class="app-fractions__labels">
-        <img class="icon" src="assets/icons/pap-21.svg" alt="PAP 21" />
-        <img class="icon" src="assets/icons/pap-22.svg" alt="PAP 22" />
+  <div class="app-fractions__list">
+    <!--<div class="app-fractions__item" *ngFor="let i of [].constructor(50)">-->
+    <div
+      class="app-fractions__item"
+      *ngFor="let fraction of fractions"
+      [routerLink]="['/fractions/', fraction.uuid]"
+    >
+      <img
+        class="app-fractions__item-cover"
+        src="assets/img/{{ fraction.imgCover }}"
+      />
+      <div class="app-fractions__item-description">
+        <h5 class="capitalize">{{ fraction.title }}</h5>
+        <div class="app-fractions__item-labels">
+          <img
+            class="icon"
+            *ngFor="let label of fraction.labels"
+            src="assets/icons/{{ label }}.svg"
+            alt="{{ label }}"
+          />
+        </div>
       </div>
-    </mat-card-content>
-  </mat-card>
+    </div>
+  </div>
 </main>

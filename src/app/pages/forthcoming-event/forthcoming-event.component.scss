@@ -1,7 +1,10 @@
 @use "src/styles/variables" as variables;
 
 .app-forthcoming-event {
-  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  max-width: 1024px;
+  margin: auto;
 
   flex: 1;
   overflow: auto;
@@ -42,12 +45,15 @@
   }
 
   .locations {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 20px 14px;
     &__location {
       display: flex;
-      flex-direction: row;
-      gap: 10px;
+      gap: 14px;
+      flex: 1 1 360px;
       color: variables.$text-secondary;
-      margin: 14px;
       &-display-btn {
         height: inherit;
         display: flex;
@@ -62,19 +68,14 @@
   .fraction {
     &__background {
       margin-right: 20px;
-      //margin-left: 20px;
       height: 16px;
       position: relative;
-      top: 50px;
+      top: 45px;
       z-index: 1;
       background: variables.$event-background;
-      //opacity: .67;
     }
     &__title {
       margin: 20px;
-      //margin: 22px 0 20px 20px;
-      //padding-right: 20px;
-      //text-align: center;
       position: relative;
       z-index: 1;
     }
@@ -95,8 +96,7 @@
     }
 
     &:last-of-type {
-      // margin-bottom: 50px; todo: not working, something is wrong with height of container
-      padding-bottom: 48px;
+      margin-bottom: 48px;
     }
   }
 }

@@ -1,21 +1,53 @@
+@use "src/styles/variables" as variables;
+
 .app-fractions {
+  display: flex;
+  flex-direction: column;
+  max-width: 1024px;
+  margin: auto;
+
   &__title {
     margin: 20px;
   }
   &__content {
     margin: 20px;
   }
-  &__input {
+  &__search {
     width: 100%;
   }
 
-  &__labels {
-    margin-top: 10px;
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+  }
+  &__item {
     display: flex;
-    flex-direction: row;
-    gap: 14px;
-    .icon {
-      height: 3em;
+    flex-direction: column;
+    border-radius: 4px;
+    overflow: hidden;
+    min-width: 200px;
+    max-width: 400px;
+    cursor: pointer;
+    box-shadow: variables.$card-box-shadow;
+    &-cover {
+      object-fit: cover;
+      object-position: center;
+      height: 100%;
+      width: 100%;
+    }
+    &-description {
+      padding: 16px;
+    }
+    &-labels {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      min-height: 48px;
+      gap: 14px;
+      .icon {
+        height: 3em;
+      }
     }
   }
 }
