@@ -84,10 +84,13 @@ a:hover {
 //  color: variables.$white;
 //}
 
-button {
-  width: 100%;
-  max-width: 370px;
-  min-height: 53px;
+button  {
+  &:not(.mat-mdc-icon-button) {
+    width: 100%;
+    max-width: 370px;
+    min-height: 53px;
+  }
+
 }
 
 //svg.material-icons {

@@ -1,47 +1,54 @@
-<div class="event-date">
-  <div class="event-date__wrapper">
-    <h2 class="event-date__day uppercase">{{ event.day }}</h2>
-    <h2 class="event-date__month uppercase">ноября</h2>
-  </div>
-</div>
-
-<div class="locations">
-  <div class="locations__location" *ngFor="let location of event.locations">
-    <div class="locations__location-display-btn">
-      <span class="material-icons">place</span>
-    </div>
-    <div>
-      <div>{{ location.title }}</div>
-      <div>{{ location.address }}</div>
-      <div>{{ location.from }}-{{ location.to }}</div>
+<div class="app-forthcoming-event">
+  <div class="event-date">
+    <div class="event-date__wrapper">
+      <h2 class="event-date__day uppercase">{{ event.day }}</h2>
+      <h2 class="event-date__month uppercase">ноября</h2>
     </div>
   </div>
-</div>
 
-<div class="announcement" *ngFor="let announcement of event.announcements">
-  <p>{{ announcement }}</p>
-</div>
-
-<div class="fraction" *ngFor="let fraction of fractions">
-  <div class="fraction__background"></div>
-  <!--[style.background-color]="fraction-fractions.color"-->
-  <h2 class="fraction__title capitalize">{{ fraction.title }}</h2>
-  <!-- TODO: преход на страницу описания привил приёма вторсырья -->
-  <div
-    class="fraction__item"
-    *ngFor="let item of fraction.items"
-    [routerLink]="['/fractions/', item.uuid]"
-  >
-    <p class="fraction__item-text capitalize">{{ item.title }}</p>
+  <div class="locations">
+    <div class="locations__location" *ngFor="let location of event.locations">
+      <div class="locations__location-display-btn">
+        <span class="material-icons">place</span>
+      </div>
+      <div>
+        <div>{{ location.title }}</div>
+        <div>{{ location.address }}</div>
+        <div>
+          <time>{{ location.from }}</time> — <time>{{ location.to }}</time>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="announcement" *ngFor="let announcement of fraction.announcements">
-    <p
-      [ngClass]="{
-        announcement_alert: announcement.type === ANNOUNCEMENT_TYPE.ALERT,
-        announcement_warning: announcement.type === ANNOUNCEMENT_TYPE.WARNING
-      }"
+
+  <div class="announcement" *ngFor="let announcement of event.announcements">
+    <p>{{ announcement }}</p>
+  </div>
+
+  <div class="fraction" *ngFor="let fraction of fractions">
+    <div class="fraction__background"></div>
+    <!--[style.background-color]="fraction-fractions.color"-->
+    <h2 class="fraction__title capitalize">{{ fraction.title }}</h2>
+    <!-- TODO: преход на страницу описания привил приёма вторсырья -->
+    <div
+      class="fraction__item"
+      *ngFor="let item of fraction.items"
+      [routerLink]="['/fractions/', item.uuid]"
     >
-      {{ announcement.text }}
-    </p>
+      <p class="fraction__item-text capitalize">{{ item.title }}</p>
+    </div>
+    <div
+      class="announcement"
+      *ngFor="let announcement of fraction.announcements"
+    >
+      <p
+        [ngClass]="{
+          announcement_alert: announcement.type === ANNOUNCEMENT_TYPE.ALERT,
+          announcement_warning: announcement.type === ANNOUNCEMENT_TYPE.WARNING
+        }"
+      >
+        {{ announcement.text }}
+      </p>
+    </div>
   </div>
 </div>

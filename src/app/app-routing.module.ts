@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ROUTS } from '@constants/routs';
-import { BaseLayoutComponent } from "@layouts/base-layout/base-layout.component";
+import { BaseLayoutComponent } from '@layouts/base-layout/base-layout.component';
 import { HomeComponent } from '@pages/home/home.component';
 import { NotFoundComponent } from '@pages/not-found/not-found.component';
 
@@ -21,6 +21,22 @@ const routes: Routes = [
     loadChildren: () =>
       import('@pages/fractions/fractions.module').then(
         (m) => m.FractionsModule
+      ),
+  },
+  {
+    path: ROUTS.AUTHENTICATION,
+    component: BaseLayoutComponent,
+    loadChildren: () =>
+      import('@pages/authentication/authentication.module').then(
+        (m) => m.AuthenticationModule
+      ),
+  },
+  {
+    path: ROUTS.ADMINISTRATION,
+    component: BaseLayoutComponent,
+    loadChildren: () =>
+      import('@pages/administration/administration.module').then(
+        (m) => m.AdministrationModule
       ),
   },
   { path: '**', component: NotFoundComponent },

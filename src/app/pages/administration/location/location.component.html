@@ -1,0 +1,61 @@
+<div class="app-location">
+  <ng-container *ngIf="!editable; else editableLocation">
+    <div class="app-location__info">
+      <div>title</div>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, nulla,
+        quisquam. Eveniet in iure rem.
+      </div>
+      <div>
+        <time datetime="2022-01-29T12:00">12:00</time> —
+        <time datetime="2022-01-29T13:00">13:00</time>
+      </div>
+    </div>
+    <div class="app-location__actions">
+      <button mat-icon-button (click)="enterEditMode()" *ngIf="!editable">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+  </ng-container>
+</div>
+
+<ng-template #editableLocation>
+  <div class="app-location__edit">
+    <mat-form-field appearance="outline" floatLabel="always">
+      <mat-label>Название</mat-label>
+      <input autocomplete="off" matInput type="text" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Адресс</mat-label>
+      <textarea matInput></textarea>
+    </mat-form-field>
+
+    <div class="app-location__time">
+      <mat-form-field>
+        <mat-icon matSuffix>schedule</mat-icon>
+        <input autocomplete="off" matInput type="time" />
+      </mat-form-field>
+      —
+      <mat-form-field appearance="outline">
+        <mat-icon matSuffix>schedule</mat-icon>
+        <input autocomplete="off" matInput type="time" />
+      </mat-form-field>
+    </div>
+
+    <!-- TODO make material-like styles for default time input: -->
+    <input autocomplete="off" type="time" />
+    <!-- ... -->
+
+    <div class="app-location__actions">
+      <button mat-icon-button (click)="applyChanges()">
+        <mat-icon>done</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="applyChanges()">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button mat-icon-button (click)="cancelEdition()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+</ng-template>

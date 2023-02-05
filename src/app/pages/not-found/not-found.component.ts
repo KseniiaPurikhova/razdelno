@@ -7,5 +7,5 @@ import { ROUTS } from '@constants/routs';
   styleUrls: ['./not-found.component.scss'],
 })
 export class NotFoundComponent {
-  public ROUTS = ROUTS;
+  ROUTS = ROUTS;
 }

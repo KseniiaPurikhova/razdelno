@@ -1,0 +1,37 @@
+<div class="app-administration">
+  <h2 class="app-administration__title">Администрирование</h2>
+
+  <div class="app-administration__content">
+    <button
+      class="app-administration__button"
+      mat-stroked-button
+      color="accent"
+    >
+      Предстоящая акция
+    </button>
+    <!--<mat-divider></mat-divider>-->
+    <button
+      class="app-administration__button"
+      mat-stroked-button
+      [routerLink]="ROUTS.LOCATIONS"
+    >
+      Точки приёма
+    </button>
+    <button class="app-administration__button" mat-stroked-button>
+      Фракции
+    </button>
+    <button class="app-administration__button" mat-stroked-button>
+      Вторсырьё
+    </button>
+
+    <div class="app-administration__card">
+      <h4 class="app-administration__card-title">Точки приёма</h4>
+      <div class="app-administration__card-content">
+        <ng-container *ngFor="let i of [].constructor(5); let last = last">
+          <app-location></app-location>
+          <mat-divider *ngIf="!last"></mat-divider>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

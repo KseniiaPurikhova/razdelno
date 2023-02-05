@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { ROUTS } from '@shared/constants/routs';
 
 @Component({
@@ -7,7 +7,5 @@ import { ROUTS } from '@shared/constants/routs';
   styleUrls: ['./navigation.component.scss'],
 })
 export class NavigationComponent {
-  @Input()
-  public path: string[] | undefined;
-  public ROUTS = ROUTS;
+  ROUTS = ROUTS;
 }

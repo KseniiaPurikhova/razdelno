@@ -1,4 +1,4 @@
-import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import { ROUTS } from '@shared/constants/routs';
 import { FormControl } from '@angular/forms';
 import { debounceTime, takeUntil } from 'rxjs';
@@ -28,13 +28,11 @@ export interface FractionDetailed extends Fraction {
   selector: 'app-fractions',
   templateUrl: './fractions.component.html',
   styleUrls: ['./fractions.component.scss'],
-  encapsulation: ViewEncapsulation.None,
 })
 export class FractionsComponent extends BaseComponent {
-  @HostBinding('class.app-fractions') public readonly hostClass = true;
-  public ROUTS = ROUTS;
-  public searchControl = new FormControl('');
-  public allFractions: Fraction[] = [
+  ROUTS = ROUTS;
+  searchControl = new FormControl('');
+  allFractions: Fraction[] = [
     {
       uuid: '1',
       title: 'мягкий картон и бумага',
@@ -65,7 +63,7 @@ export class FractionsComponent extends BaseComponent {
       imgCover: 'стекло.jpg',
     },
   ];
-  public fractions: Fraction[] = [...this.allFractions];
+  fractions: Fraction[] = [...this.allFractions];
 
   ngOnInit() {
     this.searchControl.valueChanges
@@ -81,7 +79,7 @@ export class FractionsComponent extends BaseComponent {
       });
   }
 
-  public clearSearch() {
+  clearSearch() {
     this.searchControl.setValue('');
   }
 }

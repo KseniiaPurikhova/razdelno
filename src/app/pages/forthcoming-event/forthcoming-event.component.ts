@@ -1,5 +1,6 @@
-import { Component, HostBinding, ViewEncapsulation } from "@angular/core";
+import { Component } from '@angular/core';
 import { ROUTS } from '@shared/constants/routs';
+import { HttpClient } from '@angular/common/http';
 
 interface Location {
   from: string; // ?
@@ -42,48 +43,21 @@ interface Announcement {
   selector: 'app-forthcoming-event',
   templateUrl: './forthcoming-event.component.html',
   styleUrls: ['./forthcoming-event.component.scss'],
-  encapsulation: ViewEncapsulation.None,
 })
 export class ForthcomingEventComponent {
-  @HostBinding('class.app-forthcoming-event') public readonly hostClass = true;
-  public ROUTS = ROUTS;
-  public ANNOUNCEMENT_TYPE = AnnouncementType;
-  public event: Event = {
+  ROUTS = ROUTS;
+  ANNOUNCEMENT_TYPE = AnnouncementType;
+  event: Event = {
     day: 28,
     month: 0,
-    locations: [
-      {
-        from: '11:00',
-        to: '12:30',
-        title: 'Администрация Ленинского района',
-        address: 'Ленина, 46',
-      },
-      {
-        from: '11:00',
-        to: '12:30',
-        title: 'Автозавод',
-        address: 'пл. Киселёва',
-      },
-      {
-        from: '11:00',
-        to: '12:30',
-        title: 'Мыза',
-        address: 'напротив ТЦ «Жанто-2»',
-      },
-      {
-        from: '11:00',
-        to: '12:30',
-        title: 'Кстово',
-        address: 'пр-кт. Капитана Рачкова, 12',
-      },
-    ],
+    locations: [],
     announcements: [
       'Дарьино и Мещера в этот раз не открываются ид-за недостатка волонтеров. На Автозаводе количество ребят также критически низкое и если кто-то откажется или заболеет, то точка тоже может не открыться. Просим всех, у кого есть возможность и желание присоединиться к нашим волонтерам и сделать прием сырья более комфортным и быстрым.',
       'Напомним, что прием посетителей в Экоцентре в день акции не осуществляется! Но можно прийти и помочь нам с разгрузкой машин к 13:30. Мы вам будем очень рады!',
     ],
   };
 
-  public fractions: Fractions[] = [
+  fractions: Fractions[] = [
     {
       title: 'постоянные фракции',
       color: '#72F2F2',
@@ -145,4 +119,15 @@ export class ForthcomingEventComponent {
       ],
     },
   ];
+
+  constructor(private httpClient: HttpClient) {}
+
+  ngOnInit() {
+    this.httpClient
+      .get('assets/json/locations.json')
+      .subscribe((data) => {
+        console.log(data);
+        this.event.locations = data as Location[];
+      });
+  }
 }

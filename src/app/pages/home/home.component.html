@@ -1,27 +1,50 @@
-<header class="banner"></header>
+<div class="app-home">
+  <header class="banner"></header>
 
-<main class="content">
-  <h2 class="content__title">РазДельно<br />Нижний Новгород</h2>
-  <p class="content__subtitle">
-    Кампания экологической общественной организации «Изменим мир»
-  </p>
+  <main class="content">
+    <h2 class="content__title">РазДельно<br />Нижний Новгород</h2>
+    <p class="content__subtitle">
+      Кампания экологической общественной организации «Изменим мир»
+    </p>
 
-  <button
-    class="content__button"
-    mat-flat-button
-    color="primary"
-    [routerLink]="ROUTS.EVENT"
-  >
-    Предстоящая акция
-  </button>
-  <button class="content__button" mat-button>Справочник вторсырья</button>
-  <button class="content__button" mat-button>Вход (для админов)</button>
-</main>
+    <nav>
+      <button
+        class="content__button"
+        mat-flat-button
+        color="primary"
+        [routerLink]="ROUTS.EVENT"
+      >
+        Предстоящая акция
+      </button>
+      <button
+        class="content__button"
+        mat-button
+        [routerLink]="[ROUTS.FRACTIONS]"
+      >
+        Справочник вторсырья
+      </button>
+      <button
+        class="content__button"
+        mat-button
+        [routerLink]="[ROUTS.AUTHENTICATION]"
+      >
+        Вход (для админов)
+      </button>
 
-<footer>
-  <p>
-    Разработка:
-    <a rel="author" href="https://vk.com/k.purikhova">Ксения Пурихова</a>
-  </p>
+      <button
+        class="content__button"
+        mat-button
+        [routerLink]="[ROUTS.ADMINISTRATION]"
+      >
+        Админка
+      </button>
+    </nav>
+  </main>
 
-</footer>
+  <footer>
+    <p>
+      Разработка:
+      <a rel="author" href="https://vk.com/k.purikhova">Ксения Пурихова</a>
+    </p>
+  </footer>
+</div>

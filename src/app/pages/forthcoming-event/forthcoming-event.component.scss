@@ -5,10 +5,8 @@
   flex-direction: column;
   max-width: 1024px;
   margin: auto;
-
-  flex: 1;
-  overflow: auto;
-
+  //flex: 1;
+  //overflow: auto;
   .announcement {
     margin: 10px 20px;
     &_alert {

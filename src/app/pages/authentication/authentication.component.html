@@ -1,0 +1,66 @@
+<div class="app-authentication">
+  <div class="app-authentication__content">
+    <mat-card>
+      <form [formGroup]="loginFormGroup" class="app-authentication__enter-form">
+        <h3 class="app-authentication__label">
+          Вход для администрации РазДельно
+        </h3>
+
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Логин</mat-label>
+          <input
+            autocomplete="username"
+            formControlName="login"
+            matInput
+            type="text"
+          />
+          <mat-error *ngIf="getErrorMessage('email') as errorMessage">
+            {{ errorMessage }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Пароль</mat-label>
+          <input
+            [type]="passVisible ? 'text' : 'password'"
+            autocomplete="current-password"
+            formControlName="password"
+            matInput
+          />
+          <mat-icon (click)="changeVisible()" matSuffix>{{
+            passVisible ? "visibility" : "visibility_off"
+          }}</mat-icon>
+          <mat-error *ngIf="getErrorMessage('password') as errorMessage">
+            {{ errorMessage }}
+          </mat-error>
+        </mat-form-field>
+
+        <div class="app-authentication__extra-actions">
+          <mat-checkbox
+            color="primary"
+            aria-label="запомнить меня"
+            (change)="toggleRememberMe()"
+          >
+            Запомнить меня
+          </mat-checkbox>
+          <div class="app-authentication__forgot" (click)="forgotPassword()">
+            Забыли пароль?
+          </div>
+        </div>
+
+        <button
+          class="app-authentication__auth-btn"
+          mat-flat-button
+          color="primary"
+          (click)="login()"
+        >
+          Войти
+        </button>
+      </form>
+
+      <div *ngIf="loginLoading$ | async" class="mat-card-overlay">
+        <mat-spinner [diameter]="32"></mat-spinner>
+      </div>
+    </mat-card>
+  </div>
+</div>

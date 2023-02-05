@@ -6,10 +6,7 @@
   max-width: 1024px;
   margin: auto;
 
-  &__title {
-    margin: 20px;
-  }
-  &__content {
+  &__title, &__content {
     margin: 20px;
   }
   &__search {

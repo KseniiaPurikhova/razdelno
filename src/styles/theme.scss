@@ -25,7 +25,7 @@ $mdc-typography-styles-button: (
 @import "@material/button/mdc-button";
 
 .mat-primary {
-  --mdc-filled-button-container-color: #ffc107;
+  --mdc-filled-button-container-color: variables.$primary; // #ffc107;
   --mdc-filled-button-label-text-color: variables.$white;
 }
 

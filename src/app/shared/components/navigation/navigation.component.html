@@ -1,12 +1,12 @@
 <nav class="navigation">
-  <button
+  <!--<button
     class="navigation__go-back"
     mat-icon-button
     [routerLink]="path"
     aria-label="Вернуться на предыдушую страницу"
   >
     <mat-icon>arrow_back</mat-icon>
-  </button>
+  </button>-->
 
   <button
     class="navigation__menu"
@@ -29,9 +29,13 @@
       <mat-icon>manage_search</mat-icon>
       <span>Справочник вторсырья</span>
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item [routerLink]="['/', ROUTS.AUTHENTICATION]">
       <mat-icon>login</mat-icon>
       <span>Вход (для админов)</span>
+    </button>
+    <button mat-menu-item [routerLink]="['/', ROUTS.ADMINISTRATION]">
+      <mat-icon></mat-icon>
+      <span>Админка</span>
     </button>
   </mat-menu>
 </nav>

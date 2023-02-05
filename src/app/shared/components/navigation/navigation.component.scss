@@ -4,7 +4,7 @@
   height: 60px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   background: variables.$primary;
   box-shadow: 0 2px 5px #0000004d;
   &__go-back {

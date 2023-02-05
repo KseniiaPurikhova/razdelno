@@ -1,43 +1,45 @@
-<h2 class="app-fractions__title capitalize">Справочник вторсырья</h2>
+<div class="app-fractions">
+  <h2 class="app-fractions__title">Справочник вторсырья</h2>
 
-<main class="app-fractions__content">
-  <mat-form-field class="app-fractions__search" appearance="outline">
-    <mat-label>Поиск</mat-label>
-    <mat-icon matPrefix>search</mat-icon>
-    <input matInput type="text" [formControl]="searchControl" />
-    <button
-      *ngIf="searchControl?.value?.length"
-      matSuffix
-      mat-icon-button
-      aria-label="очистить поиск"
-      (click)="clearSearch()"
-    >
-      <mat-icon>close</mat-icon>
-    </button>
-  </mat-form-field>
+  <div class="app-fractions__content">
+    <mat-form-field class="app-fractions__search" appearance="outline">
+      <mat-label>Поиск</mat-label>
+      <mat-icon matPrefix>search</mat-icon>
+      <input matInput type="text" [formControl]="searchControl" />
+      <button
+        *ngIf="searchControl?.value?.length"
+        matSuffix
+        mat-icon-button
+        aria-label="очистить поиск"
+        (click)="clearSearch()"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
 
-  <div class="app-fractions__list">
-    <!--<div class="app-fractions__item" *ngFor="let i of [].constructor(50)">-->
-    <div
-      class="app-fractions__item"
-      *ngFor="let fraction of fractions"
-      [routerLink]="['/fractions/', fraction.uuid]"
-    >
-      <img
-        class="app-fractions__item-cover"
-        src="assets/img/{{ fraction.imgCover }}"
-      />
-      <div class="app-fractions__item-description">
-        <h5 class="capitalize">{{ fraction.title }}</h5>
-        <div class="app-fractions__item-labels">
-          <img
-            class="icon"
-            *ngFor="let label of fraction.labels"
-            src="assets/icons/{{ label }}.svg"
-            alt="{{ label }}"
-          />
+    <div class="app-fractions__list">
+      <!--<div class="app-fractions__item" *ngFor="let i of [].constructor(50)">-->
+      <div
+        class="app-fractions__item"
+        *ngFor="let fraction of fractions"
+        [routerLink]="['/fractions/', fraction.uuid]"
+      >
+        <img
+          class="app-fractions__item-cover"
+          src="assets/img/{{ fraction.imgCover }}"
+        />
+        <div class="app-fractions__item-description">
+          <h5 class="capitalize">{{ fraction.title }}</h5>
+          <div class="app-fractions__item-labels">
+            <img
+              class="icon"
+              *ngFor="let label of fraction.labels"
+              src="assets/icons/{{ label }}.svg"
+              alt="{{ label }}"
+            />
+          </div>
         </div>
       </div>
     </div>
   </div>
-</main>
+</div>

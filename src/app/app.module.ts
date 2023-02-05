@@ -7,15 +7,15 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BaseLayoutComponent } from "@layouts/base-layout/base-layout.component";
-import { HomeComponent } from "@pages/home/home.component";
-import { ForthcomingEventComponent } from "@pages/forthcoming-event/forthcoming-event.component";
-import { NotFoundComponent } from "@pages/not-found/not-found.component";
-import { FractionsComponent } from '@pages/fractions/fractions.component';
-import { FractionComponent } from '@pages/fractions/fraction/fraction.component';
+import { BaseLayoutComponent } from '@layouts/base-layout/base-layout.component';
+import { HomeComponent } from '@pages/home/home.component';
+import { ForthcomingEventComponent } from '@pages/forthcoming-event/forthcoming-event.component';
+import { NotFoundComponent } from '@pages/not-found/not-found.component';
 import { NavigationModule } from '@shared/components/navigation/navigation.module';
-import { MatInputModule } from "@angular/material/input";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from '@services/http/auth.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,8 +23,6 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     HomeComponent,
     NotFoundComponent,
     ForthcomingEventComponent,
-    FractionsComponent,
-    FractionComponent,
     BaseLayoutComponent,
   ],
   imports: [
@@ -38,10 +36,11 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     MatExpansionModule,
     MatInputModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   exports: [AppRoutingModule, NavigationModule],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
