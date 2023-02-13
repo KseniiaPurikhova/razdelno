@@ -29,7 +29,8 @@
               "src/styles/theme.scss",
               "src/styles/variables.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {
