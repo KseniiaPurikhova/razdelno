@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ROUTS } from '@shared/constants/routs';
 import { FormControl } from '@angular/forms';
 import { debounceTime, takeUntil } from 'rxjs';
@@ -28,6 +28,7 @@ export interface FractionDetailed extends Fraction {
   selector: 'app-fractions',
   templateUrl: './fractions.component.html',
   styleUrls: ['./fractions.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FractionsComponent extends BaseComponent {
   ROUTS = ROUTS;

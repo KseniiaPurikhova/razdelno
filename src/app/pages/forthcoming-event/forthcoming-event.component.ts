@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ROUTS } from '@shared/constants/routs';
 import { HttpClient } from '@angular/common/http';
 
@@ -43,6 +43,7 @@ interface Announcement {
   selector: 'app-forthcoming-event',
   templateUrl: './forthcoming-event.component.html',
   styleUrls: ['./forthcoming-event.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ForthcomingEventComponent {
   ROUTS = ROUTS;
